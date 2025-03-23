@@ -38,13 +38,6 @@ def preprocess_text(text):
     words = [word for word in words if word not in stop_words]
     return " ".join(words)
 
-# Function to extract skills and keywords
-def extract_skills(text):
-    tokens = nltk.word_tokenize(text)
-    tagged = nltk.pos_tag(tokens)
-    skills = [word for word, tag in tagged if tag.startswith('NN')]
-    return set(skills)
-
 # Function to rank resumes based on job description
 def rank_resumes(job_description, resumes):
     processed_job_desc = preprocess_text(job_description)
